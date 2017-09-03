@@ -9,7 +9,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './Containers/Login';
 import CreateAccount from './Containers/CreateAccount';
 import LoadingComponent from './Containers/LoadingComponent';
-import AuthenticatedComponent from './Containers/AuthenticatedComponent';
+import ListUsers from './Containers/ListUsers';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 ReactDOM.render(
@@ -19,8 +19,9 @@ ReactDOM.render(
         <Switch>
           <Route path="/CreateAccount" component={CreateAccount}/>
           <Route path="/Login" component={Login}/>
-          <AuthenticatedComponent>
-          </AuthenticatedComponent>
+          <Route path="/" component={ListUsers}/>
+          {/*<AuthenticatedComponent>*/}
+          {/*</AuthenticatedComponent>*/}
         </Switch>
       </LoadingComponent>
     </BrowserRouter>

@@ -2,21 +2,16 @@ import React, { Component } from 'react';
 
 export default class SimpleBox extends Component {
   render() {
-    const { title, body, footer } = this.props;
+    const { children, title } = this.props;
     return (
       <div className="container">
         <div className="d-flex justify-content-center align-self-center">
           <div className="card col-sm-6">
             <div className="card-block">
               <div className="card-title text-center">
-                {title}
+                <h3>{title}</h3>
               </div>
-              <div className="card-body">
-                {body}
-              </div>
-              {footer && <div className="card-footer">
-                {footer}
-              </div>}
+              {children}
             </div>
           </div>
         </div>

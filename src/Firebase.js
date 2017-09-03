@@ -1,16 +1,13 @@
 import * as firebase from 'firebase';
 const config = {
-  apiKey: 'AIzaSyB6y5SiSArJ1XGpIuLKjJ8BU5hyOSYQZ_A',
-  authDomain: 'messageboard-f7999.firebaseapp.com',
-  databaseURL: 'https://messageboard-f7999.firebaseio.com',
-  projectId: 'messageboard-f7999',
-  storageBucket: 'messageboard-f7999.appspot.com',
-  messagingSenderId: '1812983197'
+  apiKey: "AIzaSyBCw_Px68EFyzY2eZPegF1I1uRMjq_XONw",
+  authDomain: "acoolmessageboard.firebaseapp.com",
+  databaseURL: "https://acoolmessageboard.firebaseio.com",
+  projectId: "acoolmessageboard",
+  storageBucket: "acoolmessageboard.appspot.com",
+  messagingSenderId: "410302103395"
 };
 firebase.initializeApp(config);
-
-export const database = firebase.database().ref('posts/');
+export const database = firebase.database();
 export const auth = firebase.auth();
-export const googleProvider = new firebase.auth.GoogleAuthProvider();
-export const twitterProvider = new firebase.auth.TwitterAuthProvider();
 
