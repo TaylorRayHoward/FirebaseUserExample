@@ -20,8 +20,6 @@ ReactDOM.render(
           <Route path="/CreateAccount" component={CreateAccount}/>
           <Route path="/Login" component={Login}/>
           <Route path="/" component={ListUsers}/>
-          {/*<AuthenticatedComponent>*/}
-          {/*</AuthenticatedComponent>*/}
         </Switch>
       </LoadingComponent>
     </BrowserRouter>
