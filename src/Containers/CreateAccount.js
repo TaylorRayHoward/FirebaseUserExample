@@ -4,7 +4,6 @@ import FooterFormButton from '../Components/FooterFormButton';
 import SimpleBox from '../Components/SimpleBox';
 import { createAccount } from '../Actions/UserActions';
 import { connect } from 'react-redux';
-import ErrorAlert from '../Components/ErrorAlert';
 import { Field, reduxForm } from 'redux-form';
 import { email, required } from '../Helpers/ReduxFormValidation';
 
@@ -62,7 +61,6 @@ class CreateAccount extends Component {
                 required={true}
                 type="password"
               />
-              {this.state.error && <ErrorAlert>Your username/password is incorrect</ErrorAlert>}
               <FooterFormButton submitLabel="Create Account" otherLabel="Go Back"
                                 goToLink="/Login" {...this.props}
               />
