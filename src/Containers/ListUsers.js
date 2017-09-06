@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import SimpleBox from '../Components/SimpleBox';
 import { logout } from '../Actions/UserActions';
+import PreviewPicture from './PreviewPicture';
 
 class ListUsers extends Component {
   renderUsers() {
@@ -16,6 +17,7 @@ class ListUsers extends Component {
           <div className="card-body text-center">
             {user.fname} {user.lname}
           </div>
+          <PreviewPicture pictureUrl={user.picture}/>
         </SimpleBox>
       );
     });

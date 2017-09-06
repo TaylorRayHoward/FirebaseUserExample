@@ -1,4 +1,4 @@
-import { auth, database } from '../Firebase';
+import { auth, database, storage } from '../Firebase';
 
 export const GET_USER = 'get_user';
 export const GET_DB_USERS = 'get_db_users';
@@ -40,7 +40,7 @@ export function getDbUsers() {
         payload: false
       });
     });
-  }
+  };
 }
 
 export function login(email, password) {
@@ -51,14 +51,17 @@ export function logout() {
   return dispatch => auth.signOut();
 }
 
-export function createAccount(data) {
-  const { fname, lname, email, password } = data;
+export function createAccount(data, picture) {
+  const { fname, lname, email, password, image } = data;
   return dispatch => auth.createUserWithEmailAndPassword(email, password).then((user) => {
-    if(user !== null) {
-      database.ref('users').child(user.uid).set({
-        fname,
-        lname
-      })
+    if (user !== null) {
+      storage.child(`profile/${picture.name}/${new Date().getTime()}`).put(image[0]).then((snapshot) => {
+        database.ref('users').child(user.uid).set({
+          fname,
+          lname,
+          picture: snapshot.metadata.downloadURLs[0]
+        });
+      });
     }
   });
 }

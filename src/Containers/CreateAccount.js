@@ -6,6 +6,7 @@ import { createAccount } from '../Actions/UserActions';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { email, required } from '../Helpers/ReduxFormValidation';
+import ImageField from '../Components/ImageField';
 
 class CreateAccount extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class CreateAccount extends Component {
   }
 
   onSubmit(data) {
-    this.props.createAccount(data);
+    this.props.createAccount(data, this.state);
   }
 
   render() {
@@ -60,6 +61,12 @@ class CreateAccount extends Component {
                 validate={required}
                 required={true}
                 type="password"
+              />
+              <Field
+                name="image"
+                label="Profile Picture"
+                component={ImageField}
+                required={true}
               />
               <FooterFormButton submitLabel="Create Account" otherLabel="Go Back"
                                 goToLink="/Login" {...this.props}
